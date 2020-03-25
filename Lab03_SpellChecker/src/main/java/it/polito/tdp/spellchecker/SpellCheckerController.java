@@ -18,9 +18,13 @@ import javafx.scene.input.MouseEvent;
 
 public class SpellCheckerController {
 	
-	Dictionary dizionario;
-	List<String> inputTextList;
+	private Dictionary dizionario;
+	private List<String> inputTextList;
 
+	//Flag to select dichotomic search
+	private final static boolean dichotomicSearch = false;
+	private final static boolean linearSearch = false;
+	
     @FXML
     private ResourceBundle resources;
 
@@ -132,9 +136,17 @@ public class SpellCheckerController {
     	
     	//Creo una lista di RichWord che rappresenta il nostro output (parole errate)
     	List<RichWord> outputTextList ; 	
-    	//Eseguo lo spell che ci da in output le parole che non sono presenti nel dizionario
-    	outputTextList = dizionario.spellCheckText(inputTextList);
     	
+    //*********ESERCIZIO 2***************
+    	if(linearSearch) {
+    		dizionario.spellCheckTextLinear(inputTextList);
+    	}
+    	else if (dichotomicSearch) {
+    		dizionario.spellCheckTextDichotomic(inputTextList);
+    	}
+    	else {
+    		outputTextList = dizionario.spellCheckText(inputTextList); //Eseguo lo spell che ci da in output le parole che non sono presenti nel dizionario
+    	}
     	
     	long end = System.nanoTime();
     	
