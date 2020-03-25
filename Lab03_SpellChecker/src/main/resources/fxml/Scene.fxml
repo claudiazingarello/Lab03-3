@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.spellchecker.SpellCheckerController">
    <top>
       <Label text="Lab03_SpellChecker" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -13,4 +18,81 @@
          </BorderPane.margin>
       </Label>
    </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Choose the language:" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <ChoiceBox fx:id="boxLanguage" onDragDetected="#doActivation" prefWidth="140.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+               </children>
+            </HBox>
+            <TextArea fx:id="txtWrite" prefHeight="200.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </TextArea>
+            <Button fx:id="btnSpell" mnemonicParsing="false" onAction="#doSpellCheck" prefHeight="31.0" prefWidth="98.0" text="Spell Check" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="275.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <effect>
+                  <InnerShadow color="#00b6ff" />
+               </effect>
+            </Button>
+            <Label text="Wrong words">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <TextArea fx:id="txtDaCorreggere" prefHeight="200.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </TextArea>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="lblError" textFill="#ff0505">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="275.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <Button fx:id="btnClear" mnemonicParsing="false" onAction="#doClearText" prefWidth="76.0" text="Clear Text">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </HBox>
+            <Label fx:id="txtTime">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+   </center>
 </BorderPane>
